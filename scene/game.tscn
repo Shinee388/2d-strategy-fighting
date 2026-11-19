@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://ctu8silqnffep"]
+
+[ext_resource type="PackedScene" uid="uid://dmmjc5agpgjpm" path="res://scene/fighter.tscn" id="1_5kiuu"]
+
+[node name="game" type="Node2D" unique_id=924450325]
+
+[node name="CharacterBody2D" parent="." unique_id=2003875385 instance=ExtResource("1_5kiuu")]
+
+[node name="map" type="Node2D" parent="." unique_id=1626747692]
