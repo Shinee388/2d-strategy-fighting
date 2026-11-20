@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dmmjc5agpgjpm"]
 
-[ext_resource type="Script" uid="uid://c7pp6bikk1em8" path="res://fighter.gd" id="1_lj1wu"]
+[ext_resource type="Script" uid="uid://c7pp6bikk1em8" path="res://fighter/fighter.gd" id="1_lj1wu"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_mti6b"]
 radius = 10.0
