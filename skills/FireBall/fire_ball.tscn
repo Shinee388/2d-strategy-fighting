@@ -1,24 +1,47 @@
 [gd_scene format=3 uid="uid://do2nqdhbpnnx"]
 
-[ext_resource type="Script" uid="uid://crriqatl7qdtw" path="res://skills/fireBall.gd" id="1_5l66u"]
+[ext_resource type="Script" uid="uid://crriqatl7qdtw" path="res://skills/FireBall/fireBall.gd" id="1_5l66u"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4kxuq"]
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_qwqyf"]
 
-[sub_resource type="BoxMesh" id="BoxMesh_62yky"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j412c"]
+albedo_color = Color(1, 0.27450982, 0.22745098, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_5l66u"]
+material = SubResource("StandardMaterial3D_j412c")
 
 [sub_resource type="MeshTexture" id="MeshTexture_mm1bc"]
-mesh = SubResource("BoxMesh_62yky")
+mesh = SubResource("SphereMesh_5l66u")
 base_texture = SubResource("NoiseTexture2D_qwqyf")
+image_size = Vector2(20, 20)
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_6vnta"]
-particle_flag_disable_z = true
+[sub_resource type="Gradient" id="Gradient_j412c"]
+offsets = PackedFloat32Array(0, 0.5448718)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_5l66u"]
+gradient = SubResource("Gradient_j412c")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_5l66u"]
+emission_shape_scale = Vector3(0.5, 0.5, 0.5)
+emission_shape = 1
+emission_sphere_radius = 31.61
+angle_min = -720.0
+angle_max = 310.90002
 gravity = Vector3(0, 98, 0)
+color = Color(0.71583235, 0.24446002, 0.0798086, 1)
+color_ramp = SubResource("GradientTexture1D_5l66u")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s7a20"]
+albedo_color = Color(1, 0.16862746, 0.13725491, 1)
 
 [sub_resource type="SphereMesh" id="SphereMesh_4kxuq"]
+material = SubResource("StandardMaterial3D_s7a20")
 radius = 10.19
 height = 19.992
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_i51s7"]
 
 [node name="FireBall" type="Area2D" unique_id=1381779636]
 script = ExtResource("1_5l66u")
@@ -27,10 +50,12 @@ script = ExtResource("1_5l66u")
 shape = SubResource("CircleShape2D_4kxuq")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=1559641727]
-amount = 30
+amount = 18
 texture = SubResource("MeshTexture_mm1bc")
+lifetime = 0.35000000000000003
 visibility_rect = Rect2(-1e-05, -9.997989e-06, 2e-05, 47.367134)
-process_material = SubResource("ParticleProcessMaterial_6vnta")
+process_material = SubResource("ParticleProcessMaterial_5l66u")
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="." unique_id=491441100]
 mesh = SubResource("SphereMesh_4kxuq")
+texture = SubResource("CanvasTexture_i51s7")

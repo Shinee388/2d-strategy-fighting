@@ -1,9 +1,23 @@
 [gd_scene format=3 uid="uid://ctu8silqnffep"]
 
-[ext_resource type="PackedScene" uid="uid://dmmjc5agpgjpm" path="res://fighter/fighter.tscn" id="1_5kiuu"]
+[ext_resource type="PackedScene" uid="uid://dmmjc5agpgjpm" path="res://fighter/fighter.tscn" id="1_80nbo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mti6b"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_4kxuq"]
+size = Vector3(20, 20, 20)
 
 [node name="game" type="Node2D" unique_id=924450325]
 
-[node name="CharacterBody2D" parent="." unique_id=2003875385 instance=ExtResource("1_5kiuu")]
+[node name="CharacterBody2D" parent="." unique_id=2003875385 instance=ExtResource("1_80nbo")]
 
 [node name="map" type="Node2D" parent="." unique_id=1626747692]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="map" unique_id=1103689802]
+position = Vector2(200, 200)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="map/StaticBody2D" unique_id=159499507]
+shape = SubResource("RectangleShape2D_mti6b")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="map/StaticBody2D" unique_id=2034637029]
+mesh = SubResource("BoxMesh_4kxuq")
