@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://do2nqdhbpnnx"]
+
+[ext_resource type="Script" uid="uid://crriqatl7qdtw" path="res://skills/fireBall.gd" id="1_5l66u"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4kxuq"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_qwqyf"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_62yky"]
+
+[sub_resource type="MeshTexture" id="MeshTexture_mm1bc"]
+mesh = SubResource("BoxMesh_62yky")
+base_texture = SubResource("NoiseTexture2D_qwqyf")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_6vnta"]
+particle_flag_disable_z = true
+gravity = Vector3(0, 98, 0)
+
+[sub_resource type="SphereMesh" id="SphereMesh_4kxuq"]
+radius = 10.19
+height = 19.992
+
+[node name="FireBall" type="Area2D" unique_id=1381779636]
+script = ExtResource("1_5l66u")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1231322889]
+shape = SubResource("CircleShape2D_4kxuq")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=1559641727]
+amount = 30
+texture = SubResource("MeshTexture_mm1bc")
+visibility_rect = Rect2(-1e-05, -9.997989e-06, 2e-05, 47.367134)
+process_material = SubResource("ParticleProcessMaterial_6vnta")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="." unique_id=491441100]
+mesh = SubResource("SphereMesh_4kxuq")
