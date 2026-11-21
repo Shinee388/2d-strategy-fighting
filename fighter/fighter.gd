@@ -10,9 +10,19 @@ extends CharacterBody2D
 @export var fireball_cooldown: float = 0.5
 @export var fireball_spawn_distance: float = 30.0
 
+@export_group("Style")
+@export var style_scene: PackedScene = preload("res://style/firestyle/firestyle.tscn")
+
 var health: float = max_health
 var last_direction: Vector2 = Vector2.RIGHT
 var can_cast: bool = true
+var style: Node2D
+
+
+func _ready() -> void:
+	style = style_scene.instantiate()
+	style.caster = self
+	add_child(style)
 
 
 func _physics_process(delta: float) -> void:
@@ -28,10 +38,11 @@ func _physics_process(delta: float) -> void:
 
 
 func _unhandled_input(event: InputEvent) -> void:
-	# J tovch: fireball
 	if event is InputEventKey and event.pressed and not event.echo:
 		if event.keycode == KEY_J:
 			cast_fireball()
+		elif event.keycode == KEY_K:
+			style.attack(last_direction)  # K: 1 -> 2 -> 3 combo
 
 
 func cast_fireball() -> void:

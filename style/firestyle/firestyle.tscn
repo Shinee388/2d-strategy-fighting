@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://c1wh2fkoxo2pw"]
 
+[ext_resource type="Script" uid="uid://cvigmrl52k1hr" path="res://style/firestyle/firestyle.gd" id="1_pcuis"]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sg3tn"]
 size = Vector2(20, 10)
 
@@ -19,6 +21,7 @@ size = Vector2(44, 14)
 [sub_resource type="BoxMesh" id="BoxMesh_mti6b"]
 
 [node name="FireStyle" type="Node2D" unique_id=188546445]
+script = ExtResource("1_pcuis")
 
 [node name="hitbox1,2" type="Area2D" parent="." unique_id=868684894]
 
@@ -32,7 +35,6 @@ scale = Vector2(1, 1.1111112)
 mesh = SubResource("BoxMesh_bysn8")
 
 [node name="hitbox3" type="Area2D" parent="." unique_id=810182168]
-position = Vector2(0, 17)
 
 [node name="attack3" type="CollisionShape2D" parent="hitbox3" unique_id=1193582038]
 position = Vector2(12, 0)
