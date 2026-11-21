@@ -16,3 +16,7 @@ mesh = SubResource("CapsuleMesh_mti6b")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1298968275]
 shape = SubResource("CapsuleShape2D_4kxuq")
+
+[node name="skills" type="Node2D" parent="." unique_id=246194132]
+
+[node name="style" type="Node2D" parent="." unique_id=130653430]

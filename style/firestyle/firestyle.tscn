@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://c1wh2fkoxo2pw"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_x10mo"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_msvtv"]
+
+[sub_resource type="MeshTexture" id="MeshTexture_u34g8"]
+mesh = SubResource("SphereMesh_msvtv")
+base_texture = SubResource("NoiseTexture2D_x10mo")
+
+[sub_resource type="Gradient" id="Gradient_pcuis"]
+offsets = PackedFloat32Array(0.08858268, 0.6712598, 0.97440946)
+colors = PackedColorArray(1, 1, 1, 1, 0.42716536, 0.42716536, 0.42716536, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_u34g8"]
+gradient = SubResource("Gradient_pcuis")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_x3hn4"]
+lifetime_randomness = 0.03
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 11.59
+angle_min = -720.0
+angle_max = -293.1
+gravity = Vector3(0, 50, 0)
+color = Color(1, 0.32941177, 0.1254902, 1)
+color_ramp = SubResource("GradientTexture1D_u34g8")
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_qmc5v"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mm1bc"]
+albedo_color = Color(1, 0.30980393, 0, 1)
+albedo_texture = SubResource("CanvasTexture_qmc5v")
+
+[sub_resource type="BoxMesh" id="BoxMesh_bysn8"]
+material = SubResource("StandardMaterial3D_mm1bc")
+size = Vector3(20, 9, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sg3tn"]
+size = Vector2(20, 10)
+
+[node name="FireStyle" type="Node2D" unique_id=188546445]
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=2113712855]
+amount = 12
+texture = SubResource("MeshTexture_u34g8")
+lifetime = 0.3
+process_material = SubResource("ParticleProcessMaterial_x3hn4")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="GPUParticles2D" unique_id=1594038161]
+modulate = Color(0.79119796, 0.10881222, 0.0661889, 1)
+mesh = SubResource("BoxMesh_bysn8")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=868684894]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=623148539]
+shape = SubResource("RectangleShape2D_sg3tn")
