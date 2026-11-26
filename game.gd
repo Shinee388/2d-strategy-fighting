@@ -9,7 +9,7 @@ const MAX_SWAPS: int = 2  # match tus buriin daraa solij boloh ikh tuhai chadvar
 
 # true bol selection-iig algasaad DEBUG_LOADOUT-aar shuud togloh
 # (selection script bichigdeed false bolgono)
-const SKIP_SELECTION: bool = true
+const SKIP_SELECTION: bool = false
 const DEBUG_LOADOUT := {
 	"style": "res://style/firestyle/firestyle.tscn",
 	"skill1": "res://skills/fire/FireBall/fire_ball.tscn",

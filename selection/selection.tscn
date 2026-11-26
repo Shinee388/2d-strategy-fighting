@@ -44,6 +44,7 @@ label_settings = SubResource("LabelSettings_4kxuq")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/mainLayout/Available/VBoxContainer" unique_id=844217247]
 layout_mode = 2
+size_flags_vertical = 3
 
 [node name="GridContainer" type="GridContainer" parent="MarginContainer/mainLayout/Available/VBoxContainer/ScrollContainer" unique_id=187538477]
 layout_mode = 2
@@ -67,9 +68,12 @@ text = "Skills"
 
 [node name="GridContainer" type="GridContainer" parent="MarginContainer/mainLayout/Ladout/VBoxContainer" unique_id=681575687]
 layout_mode = 2
+size_flags_vertical = 3
+columns = 3
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/mainLayout/Ladout/VBoxContainer" unique_id=930733118]
 layout_mode = 2
+size_flags_vertical = 3
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/mainLayout/Ladout/VBoxContainer/HBoxContainer2" unique_id=263179088]
 layout_mode = 2
@@ -98,7 +102,16 @@ layout_mode = 2
 
 [node name="Control" type="Control" parent="MarginContainer/mainLayout/Ladout/VBoxContainer" unique_id=272049986]
 layout_mode = 2
+size_flags_vertical = 3
 
-[node name="Button" type="Button" parent="MarginContainer/mainLayout/Ladout/VBoxContainer" unique_id=2123953030]
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/mainLayout/Ladout/VBoxContainer" unique_id=180360852]
 layout_mode = 2
+
+[node name="Button" type="Button" parent="MarginContainer/mainLayout/Ladout/VBoxContainer/VBoxContainer2" unique_id=2123953030]
+layout_mode = 2
+size_flags_vertical = 6
 text = "Start"
+
+[node name="Button2" type="Button" parent="MarginContainer/mainLayout/Ladout/VBoxContainer/VBoxContainer2" unique_id=2108905594]
+layout_mode = 2
+text = "Exit"
