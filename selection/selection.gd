@@ -89,7 +89,7 @@ func _ready() -> void:
 	style_grid.columns = 1
 
 	start_button.pressed.connect(_on_start_pressed)
-	back_button.pressed.connect(_back_pressed)
+	back_button.pressed.connect(_on_back_button_pressed)
 	_refresh()
 
 

@@ -110,8 +110,8 @@ layout_mode = 2
 [node name="Button" type="Button" parent="MarginContainer/mainLayout/Ladout/VBoxContainer/VBoxContainer2" unique_id=2123953030]
 layout_mode = 2
 size_flags_vertical = 6
-text = "Start"
+text = "START"
 
 [node name="Button2" type="Button" parent="MarginContainer/mainLayout/Ladout/VBoxContainer/VBoxContainer2" unique_id=2108905594]
 layout_mode = 2
-text = "Exit"
+text = "BACK"
