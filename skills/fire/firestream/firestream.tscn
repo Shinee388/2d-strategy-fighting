@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://0fa3ll37m017"]
+
+[sub_resource type="PrismMesh" id="PrismMesh_mti6b"]
+size = Vector3(40, 40, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_4kxuq"]
+radius = 20.0
+height = 43.0
+
+[node name="firestream" type="Area2D" unique_id=652854986]
+scale = Vector2(1.9999989, 2.1903987)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="." unique_id=2123582646]
+modulate = Color(1, 0.11764706, 0.09803922, 1)
+position = Vector2(20, 0)
+rotation = 1.5701011
+mesh = SubResource("PrismMesh_mti6b")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="." unique_id=1404227289]
+modulate = Color(1, 0.11764706, 0.09803922, 1)
+position = Vector2(46.9, 0)
+mesh = SubResource("SphereMesh_4kxuq")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=545570267]
+polygon = PackedVector2Array(0, 0, 42, -21, 48, -22, 55, -20, 60, -16, 65, -9, 67, -2, 67, 1, 66, 6, 65, 10, 61, 15, 58, 18, 55, 20, 51, 21, 48, 22, 42, 21)

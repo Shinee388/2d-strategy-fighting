@@ -6,7 +6,7 @@ extends CharacterBody2D
 @export var max_health: float = 100.0
 
 @export_group("Fireball")
-@export var fireball_scene: PackedScene = preload("res://skills/FireBall/fire_ball.tscn")
+@export var fireball_scene: PackedScene = preload("res://skills/fire/FireBall/fire_ball.tscn")
 @export var fireball_cooldown: float = 0.5
 @export var fireball_spawn_distance: float = 30.0
 

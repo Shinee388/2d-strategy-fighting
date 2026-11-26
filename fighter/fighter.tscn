@@ -2,20 +2,20 @@
 
 [ext_resource type="Script" uid="uid://c7pp6bikk1em8" path="res://fighter/fighter.gd" id="1_lj1wu"]
 
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_mti6b"]
+[sub_resource type="SphereMesh" id="SphereMesh_qfruc"]
 radius = 10.0
-height = 30.0
+height = 20.0
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4kxuq"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_rjhxl"]
 
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=2003875385]
 script = ExtResource("1_lj1wu")
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="." unique_id=562350129]
-mesh = SubResource("CapsuleMesh_mti6b")
+mesh = SubResource("SphereMesh_qfruc")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1298968275]
-shape = SubResource("CapsuleShape2D_4kxuq")
+shape = SubResource("CircleShape2D_rjhxl")
 
 [node name="skills" type="Node2D" parent="." unique_id=246194132]
 

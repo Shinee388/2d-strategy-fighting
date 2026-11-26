@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://do2nqdhbpnnx"]
 
-[ext_resource type="Script" uid="uid://crriqatl7qdtw" path="res://skills/FireBall/fireBall.gd" id="1_5l66u"]
+[ext_resource type="Script" uid="uid://crriqatl7qdtw" path="res://skills/fire/FireBall/fireBall.gd" id="1_2ppna"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j412c"]
 albedo_color = Color(1, 0.27450982, 0.22745098, 1)
@@ -43,9 +43,10 @@ height = 20.0
 [sub_resource type="CanvasTexture" id="CanvasTexture_i51s7"]
 
 [node name="FireBall" type="Area2D" unique_id=1381779636]
-script = ExtResource("1_5l66u")
+script = ExtResource("1_2ppna")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=1559641727]
+scale = Vector2(0.95999986, 1)
 amount = 18
 amount_ratio = 0.856
 texture = SubResource("MeshTexture_mm1bc")
