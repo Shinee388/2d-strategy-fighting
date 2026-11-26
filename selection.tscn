@@ -1,0 +1,74 @@
+[gd_scene format=3 uid="uid://bisgoqd06l6hu"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_4kxuq"]
+
+[sub_resource type="SystemFont" id="SystemFont_62yky"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_mti6b"]
+font = SubResource("SystemFont_62yky")
+font_size = 32
+
+[node name="Selection" type="Control" unique_id=781903235]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=397102644]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(28.840002, 16.087772)
+
+[node name="mainLayout" type="HBoxContainer" parent="MarginContainer" unique_id=2112976540]
+layout_mode = 2
+
+[node name="Available" type="PanelContainer" parent="MarginContainer/mainLayout" unique_id=1017007291]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/mainLayout/Available" unique_id=1124055305]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/mainLayout/Available/VBoxContainer" unique_id=1254290452]
+layout_mode = 2
+label_settings = SubResource("LabelSettings_4kxuq")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/mainLayout/Available/VBoxContainer" unique_id=844217247]
+layout_mode = 2
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer/mainLayout/Available/VBoxContainer/ScrollContainer" unique_id=187538477]
+layout_mode = 2
+
+[node name="Ladout" type="PanelContainer" parent="MarginContainer/mainLayout" unique_id=95140086]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/mainLayout/Ladout" unique_id=1479176481]
+layout_mode = 2
+alignment = 2
+
+[node name="Label" type="Label" parent="MarginContainer/mainLayout/Ladout/VBoxContainer" unique_id=807820182]
+layout_mode = 2
+text = "Ladout"
+label_settings = SubResource("LabelSettings_mti6b")
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="MarginContainer/mainLayout/Ladout/VBoxContainer" unique_id=1845721440]
+layout_mode = 2
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer/mainLayout/Ladout/VBoxContainer" unique_id=681575687]
+layout_mode = 2
+
+[node name="Label3" type="Label" parent="MarginContainer/mainLayout/Ladout/VBoxContainer" unique_id=1933196426]
+layout_mode = 2
+
+[node name="Label4" type="Label" parent="MarginContainer/mainLayout/Ladout/VBoxContainer" unique_id=1656697939]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="MarginContainer/mainLayout/Ladout/VBoxContainer" unique_id=272049986]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="MarginContainer/mainLayout/Ladout/VBoxContainer" unique_id=2123953030]
+layout_mode = 2

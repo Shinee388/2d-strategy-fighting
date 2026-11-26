@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://0fa3ll37m017"]
 
+[ext_resource type="Script" uid="uid://2hvfiopuynu6" path="res://skills/fire/firestream/firestream.gd" id="1_gpf5t"]
+
 [sub_resource type="PrismMesh" id="PrismMesh_mti6b"]
 size = Vector3(40, 40, 1)
 
@@ -9,6 +11,7 @@ height = 43.0
 
 [node name="firestream" type="Area2D" unique_id=652854986]
 scale = Vector2(1.9999989, 2.1903987)
+script = ExtResource("1_gpf5t")
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="." unique_id=2123582646]
 modulate = Color(1, 0.11764706, 0.09803922, 1)

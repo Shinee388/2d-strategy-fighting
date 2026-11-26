@@ -10,6 +10,14 @@ height = 20.0
 
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=2003875385]
 script = ExtResource("1_lj1wu")
+speed = null
+acceleration = null
+friction = null
+max_health = null
+fireball_scene = null
+fireball_cooldown = null
+fireball_spawn_distance = null
+style_scene = null
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="." unique_id=562350129]
 mesh = SubResource("SphereMesh_qfruc")
@@ -17,6 +25,12 @@ mesh = SubResource("SphereMesh_qfruc")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1298968275]
 shape = SubResource("CircleShape2D_rjhxl")
 
-[node name="skills" type="Node2D" parent="." unique_id=246194132]
+[node name="skill1" type="Node2D" parent="." unique_id=246194132]
 
 [node name="style" type="Node2D" parent="." unique_id=130653430]
+
+[node name="skill2" type="Node2D" parent="." unique_id=242228488]
+
+[node name="mobility" type="Node2D" parent="." unique_id=1661206802]
+
+[node name="skill3" type="Node2D" parent="." unique_id=1541400194]
