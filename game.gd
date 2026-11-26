@@ -1,10 +1,12 @@
 extends Node2D
 
-const MAIN_MENU_SCRIPT := preload("res://main_menu.gd")
+const MAIN_MENU_SCENE := preload("res://main_menu.tscn")
 const SELECTION_SCENE := preload("res://selection.tscn")
 const ARENA_SCENE := preload("res://Arena.tscn")
 
 const PLAYER_COUNT: int = 2
+
+@onready var scene_holder: Node = $Node
 
 var loadouts: Dictionary = {}  # {player_id: {"combat": "Fire", "mobility": "Dash"}}
 var current: Node
@@ -23,11 +25,11 @@ func change_scene(node: Node) -> void:
 	if current:
 		current.queue_free()
 	current = node
-	add_child(current)
+	scene_holder.add_child(current)
 
 
 func show_main_menu() -> void:
-	var menu = MAIN_MENU_SCRIPT.new()
+	var menu := MAIN_MENU_SCENE.instantiate()
 	menu.start_pressed.connect(show_selection)
 	change_scene(menu)
 

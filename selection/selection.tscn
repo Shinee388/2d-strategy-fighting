@@ -2,11 +2,10 @@
 
 [sub_resource type="LabelSettings" id="LabelSettings_4kxuq"]
 
-[sub_resource type="SystemFont" id="SystemFont_62yky"]
+[sub_resource type="LabelSettings" id="LabelSettings_k6x3b"]
+font_size = 37
 
-[sub_resource type="LabelSettings" id="LabelSettings_mti6b"]
-font = SubResource("SystemFont_62yky")
-font_size = 32
+[sub_resource type="LabelSettings" id="LabelSettings_mm1bc"]
 
 [node name="Selection" type="Control" unique_id=781903235]
 layout_mode = 3
@@ -17,10 +16,12 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=397102644]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-scale = Vector2(28.840002, 16.087772)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="mainLayout" type="HBoxContainer" parent="MarginContainer" unique_id=2112976540]
 layout_mode = 2
@@ -28,6 +29,8 @@ layout_mode = 2
 [node name="Available" type="PanelContainer" parent="MarginContainer/mainLayout" unique_id=1017007291]
 custom_minimum_size = Vector2(10, 0)
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 3.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/mainLayout/Available" unique_id=1124055305]
 layout_mode = 2
@@ -44,27 +47,50 @@ layout_mode = 2
 
 [node name="Ladout" type="PanelContainer" parent="MarginContainer/mainLayout" unique_id=95140086]
 layout_mode = 2
+size_flags_horizontal = 3
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/mainLayout/Ladout" unique_id=1479176481]
 layout_mode = 2
-alignment = 2
 
 [node name="Label" type="Label" parent="MarginContainer/mainLayout/Ladout/VBoxContainer" unique_id=807820182]
 layout_mode = 2
-text = "Ladout"
-label_settings = SubResource("LabelSettings_mti6b")
+text = "Ladout "
+label_settings = SubResource("LabelSettings_k6x3b")
 horizontal_alignment = 1
 
 [node name="Label2" type="Label" parent="MarginContainer/mainLayout/Ladout/VBoxContainer" unique_id=1845721440]
 layout_mode = 2
+text = "Skills"
 
 [node name="GridContainer" type="GridContainer" parent="MarginContainer/mainLayout/Ladout/VBoxContainer" unique_id=681575687]
 layout_mode = 2
 
-[node name="Label3" type="Label" parent="MarginContainer/mainLayout/Ladout/VBoxContainer" unique_id=1933196426]
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/mainLayout/Ladout/VBoxContainer" unique_id=930733118]
 layout_mode = 2
 
-[node name="Label4" type="Label" parent="MarginContainer/mainLayout/Ladout/VBoxContainer" unique_id=1656697939]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/mainLayout/Ladout/VBoxContainer/HBoxContainer2" unique_id=263179088]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label3" type="Label" parent="MarginContainer/mainLayout/Ladout/VBoxContainer/HBoxContainer2/VBoxContainer" unique_id=2047185702]
+layout_mode = 2
+text = "Mobility"
+label_settings = SubResource("LabelSettings_mm1bc")
+horizontal_alignment = 3
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer/mainLayout/Ladout/VBoxContainer/HBoxContainer2/VBoxContainer" unique_id=152593950]
+layout_mode = 2
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/mainLayout/Ladout/VBoxContainer/HBoxContainer2" unique_id=782105269]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label4" type="Label" parent="MarginContainer/mainLayout/Ladout/VBoxContainer/HBoxContainer2/VBoxContainer2" unique_id=1504059342]
+layout_mode = 2
+text = "Style"
+horizontal_alignment = 3
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer/mainLayout/Ladout/VBoxContainer/HBoxContainer2/VBoxContainer2" unique_id=1044968109]
 layout_mode = 2
 
 [node name="Control" type="Control" parent="MarginContainer/mainLayout/Ladout/VBoxContainer" unique_id=272049986]
@@ -72,3 +98,4 @@ layout_mode = 2
 
 [node name="Button" type="Button" parent="MarginContainer/mainLayout/Ladout/VBoxContainer" unique_id=2123953030]
 layout_mode = 2
+text = "Start"

@@ -7,9 +7,13 @@
 [sub_resource type="BoxMesh" id="BoxMesh_4kxuq"]
 size = Vector3(20, 20, 20)
 
-[node name="game" type="Node2D" unique_id=924450325]
+[node name="Arena" type="Node2D" unique_id=924450325]
 
 [node name="CharacterBody2D" parent="." unique_id=2003875385 instance=ExtResource("1_80nbo")]
+speed = 300.0
+acceleration = 500.0
+friction = 1000.0
+max_health = 100.0
 
 [node name="map" type="Node2D" parent="." unique_id=1626747692]
 
