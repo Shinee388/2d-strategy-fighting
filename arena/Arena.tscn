@@ -25,5 +25,8 @@ mesh = SubResource("BoxMesh_4kxuq")
 [node name="players" type="Node2D" parent="." unique_id=1987761873]
 
 [node name="player1" parent="players" unique_id=2003875385 instance=ExtResource("1_80nbo")]
+max_health = 100.0
 
 [node name="player2" parent="players" unique_id=509796341 instance=ExtResource("1_80nbo")]
+player_id = 2
+max_health = 100.0
