@@ -10,10 +10,10 @@ extends CharacterBody2D
 # Slot bur: tovch -> slot-iin node-iin ner
 const KEY_TO_SLOT := {
 	KEY_F: "style",      
-	KEY_1: "skill1",
-	KEY_2: "skill2",
-	KEY_3: "skill3",
-	KEY_SPACE: "mobility",
+	KEY_R: "skill1",
+	KEY_T: "skill2",
+	KEY_Y: "skill3",
+	KEY_G: "mobility",
 }
 
 @onready var slots := {
