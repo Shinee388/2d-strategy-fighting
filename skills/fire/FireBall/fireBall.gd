@@ -4,6 +4,7 @@ extends BaseSkill
 @export var lifetime: float = 3.0
 @export var damage: float = 20.0
 @export var spawn_offset: float = 24.0
+@export var mana_spend: float = 20.0
 
 var direction: Vector2 = Vector2.RIGHT
 var _age: float = 0.0

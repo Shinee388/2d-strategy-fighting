@@ -3,13 +3,14 @@ extends CharacterBody2D
 
 signal health_changed(current: float, max_hp: float)
 signal died(player_id: int)
+signal mana_changed(currebt:float, maxmp: float)
 
 @export var player_id: int = 1
 @export var speed: float = 300.0
 @export var acceleration: float = 500.0
 @export var friction: float = 1000.0
 @export var max_health: float = 100.0
-
+@export var max_mana: float = 100.0
 const SLOT_NAMES: Array[String] = ["style", "skill1", "skill2", "skill3", "mobility"]
 
 @onready var slots := {
@@ -21,6 +22,7 @@ const SLOT_NAMES: Array[String] = ["style", "skill1", "skill2", "skill3", "mobil
 }
 
 var health: float = 0.0
+var mana: float = 0.0
 var alive: bool = true
 var fighting: bool = false  # true uyd l khodolno, skill khiine, dmg avna
 var last_direction: Vector2 = Vector2.RIGHT
@@ -37,6 +39,7 @@ func _ready() -> void:
 	_act_up = InputSetup.action(player_id, "up")
 	_act_down = InputSetup.action(player_id, "down")
 	health = max_health
+	mana = max_mana
 
 
 # loadout: {"style": "res://...tscn", "skill1": "res://...tscn", ...}
@@ -135,6 +138,7 @@ func _unhandled_input(event: InputEvent) -> void:
 	for slot_name in SLOT_NAMES:
 		if event.is_action_pressed(InputSetup.action(player_id, slot_name)):
 			var skill := get_skill(slot_name)
-			if skill and skill.can_use():
+			if skill and skill.can_use() and mana:
 				skill.use(last_direction)
+				mana = maxf(mana - mana_spend)
 			return
