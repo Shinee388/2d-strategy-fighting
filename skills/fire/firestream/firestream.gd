@@ -44,7 +44,7 @@ func use(dir: Vector2) -> void:
 	var stream := spawn_copy(dir, spawn_offset)
 	stream.global_rotation = dir.angle()
 	start_cooldown()
-	await get_tree().create_timer(cast_time).timeout
+	await wait(cast_time)
 	busy = false
 
 

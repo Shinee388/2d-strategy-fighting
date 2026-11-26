@@ -44,6 +44,14 @@ func spawn_copy(dir: Vector2, offset: float, props: Dictionary = {}) -> BaseSkil
 	copy.global_position = caster.global_position + dir * offset
 	return copy
 
+# SceneTree timer-iin orond: skill ustakhad timer ni khamt ustdag
+func wait(seconds: float) -> void:
+	var timer := Timer.new()
+	timer.one_shot = true
+	add_child(timer)
+	timer.start(seconds)
+	await timer.timeout
+	timer.queue_free()
 
 func reset_state() -> void:
 	busy = false

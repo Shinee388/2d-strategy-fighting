@@ -55,11 +55,10 @@ func use(dir: Vector2) -> void:
 func _swing(hitbox: Area2D, active_time: float, recovery: float, lunge: Vector2) -> void:
 	lunge_velocity = lunge
 	_set_hitbox(hitbox, true)
-	await get_tree().create_timer(active_time).timeout
+	await wait(active_time)	
 	lunge_velocity = Vector2.ZERO
 	_set_hitbox(hitbox, false)
-	await get_tree().create_timer(recovery).timeout
-
+	await wait(recovery)
 
 func _set_hitbox(hitbox: Area2D, active: bool) -> void:
 	hitbox.visible = active

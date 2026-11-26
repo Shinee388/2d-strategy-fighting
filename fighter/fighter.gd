@@ -125,7 +125,6 @@ func _physics_process(delta: float) -> void:
 		move_and_slide()
 		return
 
-	# Skill khiij bui uyd zuvkhun skill-iin lunge-aar khodolno
 	var active := _active_skill()
 	if active:
 		velocity = active.lunge_velocity

@@ -15,10 +15,10 @@ func _init() -> void:
 
 func _ready() -> void:
 	if not is_projectile:
+		$GPUParticles2D.emitting = false
 		go_dormant()
 		return
 	body_entered.connect(_on_body_entered)
-
 
 func use(dir: Vector2) -> void:
 	spawn_copy(dir, spawn_offset, {"direction": dir})
