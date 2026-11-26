@@ -1,8 +1,8 @@
 extends Node2D
 
-const MAIN_MENU_SCENE := preload("res://main_menu.tscn")
-const SELECTION_SCENE := preload("res://selection.tscn")
-const ARENA_SCENE := preload("res://Arena.tscn")
+const MAIN_MENU_SCENE := preload("res://mainmenu/main_menu.tscn")
+const SELECTION_SCENE := preload("res://selection/selection.tscn")
+const ARENA_SCENE := preload("res://arena/Arena.tscn")
 
 const PLAYER_COUNT: int = 2
 
