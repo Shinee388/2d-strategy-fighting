@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://dmmjc5agpgjpm" path="res://fighter/fighter.tscn" id="1_80nbo"]
 [ext_resource type="Script" uid="uid://dyldinvn2jwkp" path="res://arena/arena.gd" id="1_dk78b"]
+[ext_resource type="Script" uid="uid://bvruweua5iyss" path="res://arena/arena_hud.gd" id="3_gnra2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mti6b"]
 
@@ -52,6 +53,7 @@ player_id = 2
 friction = 2000.0
 
 [node name="HUD" type="CanvasLayer" parent="." unique_id=595128858]
+script = ExtResource("3_gnra2")
 
 [node name="ArenaHUD" type="Control" parent="HUD" unique_id=1756153598]
 layout_mode = 3
@@ -84,10 +86,12 @@ text = "Player1"
 label_settings = SubResource("LabelSettings_62yky")
 
 [node name="HPBar" type="ProgressBar" parent="HUD/ArenaHUD/TopContainer/HBoxContainer/Player1/VBoxContainer" unique_id=291436780]
+modulate = Color(1, 0.15294118, 0.11372549, 1)
 layout_mode = 2
 value = 50.0
 
 [node name="MPBar" type="ProgressBar" parent="HUD/ArenaHUD/TopContainer/HBoxContainer/Player1/VBoxContainer" unique_id=82305189]
+modulate = Color(0.09019608, 0.5686275, 1, 1)
 layout_mode = 2
 value = 40.0
 
@@ -108,9 +112,11 @@ text = "Player2"
 label_settings = SubResource("LabelSettings_qwqyf")
 
 [node name="HPBar" type="ProgressBar" parent="HUD/ArenaHUD/TopContainer/HBoxContainer/Player2/VBoxContainer" unique_id=1541998300]
+modulate = Color(1, 0.12941177, 0.14509805, 1)
 layout_mode = 2
 
 [node name="MPBar" type="ProgressBar" parent="HUD/ArenaHUD/TopContainer/HBoxContainer/Player2/VBoxContainer" unique_id=2040994717]
+modulate = Color(0.02745098, 0.21960784, 1, 1)
 layout_mode = 2
 
 [node name="Match" type="Label" parent="HUD/ArenaHUD" unique_id=392500881]
