@@ -41,3 +41,8 @@ func spawn_copy(dir: Vector2, offset: float, props: Dictionary = {}) -> BaseSkil
 	caster.get_parent().add_child(copy)
 	copy.global_position = caster.global_position + dir * offset
 	return copy
+
+func reset_state() -> void:
+	busy = false
+	lunge_velocity = Vector2.ZERO
+	_ready_at = 0.0
