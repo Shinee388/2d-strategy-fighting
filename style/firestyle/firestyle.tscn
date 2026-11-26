@@ -20,7 +20,7 @@ size = Vector2(44, 14)
 
 [sub_resource type="BoxMesh" id="BoxMesh_mti6b"]
 
-[node name="FireStyle" type="Node2D" unique_id=188546445]
+[node name="FireStyle" type="Area2D" unique_id=507309832]
 script = ExtResource("1_pcuis")
 
 [node name="hitbox1,2" type="Area2D" parent="." unique_id=868684894]
