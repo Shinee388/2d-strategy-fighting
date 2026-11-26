@@ -7,15 +7,13 @@ extends BaseSkill
 @export var fade_time: float = 0.2
 @export var cast_time: float = 0.3      # skill-iig gargakh uyd caster zogsono
 @export var spawn_offset: float = 10.0
-@export var mana_spend: float = 10.0
-
 
 var _full_scale: Vector2
 
 
 func _init() -> void:
 	cooldown = 3.0
-
+	mana_spend = 10.0
 
 func _ready() -> void:
 	if not is_projectile:

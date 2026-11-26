@@ -4,7 +4,6 @@ extends BaseSkill
 @export var lifetime: float = 3.0
 @export var damage: float = 20.0
 @export var spawn_offset: float = 24.0
-@export var mana_spend: float = 20.0
 
 var direction: Vector2 = Vector2.RIGHT
 var _age: float = 0.0
@@ -12,7 +11,7 @@ var _age: float = 0.0
 
 func _init() -> void:
 	cooldown = 0.8
-
+	mana_spend = 20.0
 
 func _ready() -> void:
 	if not is_projectile:

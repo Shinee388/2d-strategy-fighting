@@ -2,6 +2,7 @@ class_name BaseSkill
 extends Area2D
 
 @export var cooldown: float = 0.5
+@export var mana_spend: float = 0.0  # 0 = untsug (jishee ni: engiin tsokhilt)
 
 var caster: Node2D
 var busy: bool = false
@@ -36,11 +37,13 @@ func spawn_copy(dir: Vector2, offset: float, props: Dictionary = {}) -> BaseSkil
 	var copy: BaseSkill = (load(scene_file_path) as PackedScene).instantiate()
 	copy.is_projectile = true
 	copy.caster = caster
+	copy.add_to_group("projectiles")
 	for key in props:
 		copy.set(key, props[key])
 	caster.get_parent().add_child(copy)
 	copy.global_position = caster.global_position + dir * offset
 	return copy
+
 
 func reset_state() -> void:
 	busy = false
