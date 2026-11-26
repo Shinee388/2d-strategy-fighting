@@ -6,6 +6,7 @@ extends CharacterBody2D
 @export var acceleration: float = 500.0
 @export var friction: float = 1000.0
 @export var max_health: float = 100.0
+@export var max_mana: float = 100.0
 
 # Slot bur: tovch -> slot-iin node-iin ner
 const KEY_TO_SLOT := {
@@ -30,6 +31,7 @@ func _ready() -> void:
 	equip("skill2", preload("res://skills/fire/firestream/firestream.tscn"))
 
 var health: float = max_health
+var mana : float = max_mana
 var last_direction: Vector2 = Vector2.RIGHT
 
 
