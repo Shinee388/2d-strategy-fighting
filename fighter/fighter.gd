@@ -24,6 +24,11 @@ const KEY_TO_SLOT := {
 	"mobility": $mobility,
 }
 
+func _ready() -> void:
+	equip("style", preload("res://style/firestyle/firestyle.tscn"))
+	equip("skill1", preload("res://skills/fire/FireBall/fire_ball.tscn"))
+	equip("skill2", preload("res://skills/fire/firestream/firestream.tscn"))
+
 var health: float = max_health
 var last_direction: Vector2 = Vector2.RIGHT
 
