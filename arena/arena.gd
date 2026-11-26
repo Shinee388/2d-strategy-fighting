@@ -2,10 +2,19 @@ extends Node2D
 
 signal match_finished(winner_id: int)  # 0 = tentsuu (draw)
 
+const MANA_PICKUP_SCENE := preload("res://arena/mana_pickup.tscn")
+
 const PLAYER_COLORS := {1: Color.WHITE, 2: Color(0.55, 0.75, 1.0)}
 const INTRO_TIME: float = 1.2
 const FIGHT_TEXT_TIME: float = 0.6
 const END_DELAY: float = 2.0
+
+# --- Mana spawn tokhirgoo ---
+@export var mana_amount: float = 25.0           # neg mana-iin sergeekh khemjee
+@export var mana_spawn_interval: float = 4.0    # sekund buriin spawn
+@export var mana_max_on_field: int = 3          # nug tsagt maksimum too
+@export var mana_lifetime: float = 10.0         # ustakh khugatsaa (0 = ustakhgui)
+@export var mana_spawn_area: Rect2 = Rect2(300, 140, 1320, 480)  # map-iinkhaa khemjeend tokhiruul
 
 @onready var players: Node = $players
 @onready var map: Node = get_node_or_null("map")   # Marker2D: SpawnP1, SpawnP2 (zaaval bish)
@@ -17,6 +26,7 @@ var _spawns: Dictionary = {}        # player_id -> Vector2
 var _loadouts: Dictionary = {}
 var _series: Dictionary = {}
 var _resolving: bool = false
+var _mana_timer: Timer
 
 
 # game.gd scene-ee nemekhees omno duudna
@@ -50,6 +60,12 @@ func _ready() -> void:
 				func(current: float, _max_hp: float) -> void:
 					print("P%d HP: %d" % [id, current]))
 
+	_mana_timer = Timer.new()
+	_mana_timer.wait_time = mana_spawn_interval
+	_mana_timer.process_callback = Timer.TIMER_PROCESS_PHYSICS
+	_mana_timer.timeout.connect(_spawn_mana)
+	add_child(_mana_timer)
+
 	_run_intro()
 
 
@@ -80,10 +96,52 @@ func _run_intro() -> void:
 	_hud(&"show_message", ["FIGHT!"])
 	for fighter: Fighter in fighters.values():
 		fighter.fighting = true
+	_mana_timer.start()
 	await _wait(FIGHT_TEXT_TIME)
 	if not _resolving:
 		_hud(&"clear_message")
 
+
+# ---------------- Mana spawn ----------------
+
+func _spawn_mana() -> void:
+	if _resolving:
+		return
+	if get_tree().get_nodes_in_group("mana_pickups").size() >= mana_max_on_field:
+		return
+
+	var pos: Variant = _find_free_position()
+	if pos == null:
+		return
+
+	var pickup: ManaPickup = MANA_PICKUP_SCENE.instantiate()
+	pickup.amount = mana_amount
+	pickup.lifetime = mana_lifetime
+	add_child(pickup)
+	pickup.global_position = pos
+
+
+# Khana, tosgon, toglogch deer tuurakhgui chuluutei tsegiig 12 udaa sorino
+func _find_free_position() -> Variant:
+	var space := get_world_2d().direct_space_state
+	var circle := CircleShape2D.new()
+	circle.radius = 24.0
+	var query := PhysicsShapeQueryParameters2D.new()
+	query.shape = circle
+	query.collide_with_bodies = true
+	query.collide_with_areas = false
+
+	for i in 12:
+		var p := Vector2(
+			randf_range(mana_spawn_area.position.x, mana_spawn_area.end.x),
+			randf_range(mana_spawn_area.position.y, mana_spawn_area.end.y))
+		query.transform = Transform2D(0.0, p)
+		if space.intersect_shape(query, 1).is_empty():
+			return p
+	return null
+
+
+# ---------------- Match duusakh ----------------
 
 func _on_fighter_died(_player_id: int) -> void:
 	if _resolving:
@@ -94,9 +152,12 @@ func _on_fighter_died(_player_id: int) -> void:
 
 
 func _resolve_match() -> void:
+	_mana_timer.stop()
 	for fighter: Fighter in fighters.values():
 		fighter.fighting = false
 	for node in get_tree().get_nodes_in_group("projectiles"):
+		node.queue_free()
+	for node in get_tree().get_nodes_in_group("mana_pickups"):
 		node.queue_free()
 
 	var winner_id := 0

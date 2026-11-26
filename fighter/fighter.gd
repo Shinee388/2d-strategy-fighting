@@ -12,7 +12,6 @@ signal died(player_id: int)
 @export var friction: float = 1000.0
 @export var max_health: float = 100.0
 @export var max_mana: float = 100.0
-@export var mana_regen: float = 8.0  # sekund buriin sergeeh mana
 
 const SLOT_NAMES: Array[String] = ["style", "skill1", "skill2", "skill3", "mobility"]
 
@@ -104,14 +103,6 @@ func spend_mana(amount: float) -> bool:
 	mana_changed.emit(mana, max_mana)
 	return true
 
-
-func _regen_mana(delta: float) -> void:
-	if mana >= max_mana:
-		return
-	mana = minf(mana + mana_regen * delta, max_mana)
-	mana_changed.emit(mana, max_mana)
-
-
 func _die() -> void:
 	alive = false
 	fighting = false
@@ -133,8 +124,6 @@ func _physics_process(delta: float) -> void:
 		velocity = Vector2.ZERO
 		move_and_slide()
 		return
-
-	_regen_mana(delta)
 
 	# Skill khiij bui uyd zuvkhun skill-iin lunge-aar khodolno
 	var active := _active_skill()
@@ -174,3 +163,7 @@ func _try_use_skill(slot_name: String) -> void:
 		not_enough_mana.emit(slot_name)
 		return
 	skill.use(last_direction)
+
+func restore_mana(amount: float) -> void:
+	mana = minf(mana + amount, max_mana)
+	mana_changed.emit(mana, max_mana)

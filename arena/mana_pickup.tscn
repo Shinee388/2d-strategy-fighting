@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://i6u14mgykysh"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_4kxuq"]
+radius = 10.0
+height = 20.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mti6b"]
+
+[node name="mana_pickup" type="Area2D" unique_id=747384658]
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="." unique_id=1012991361]
+modulate = Color(0.2, 0.87058824, 1, 1)
+mesh = SubResource("SphereMesh_4kxuq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1413927236]
+shape = SubResource("CircleShape2D_mti6b")

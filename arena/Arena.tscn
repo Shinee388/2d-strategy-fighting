@@ -8,6 +8,24 @@
 [sub_resource type="BoxMesh" id="BoxMesh_4kxuq"]
 size = Vector3(20, 20, 20)
 
+[sub_resource type="FontVariation" id="FontVariation_r8qnq"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_62yky"]
+font = SubResource("FontVariation_r8qnq")
+font_size = 32
+
+[sub_resource type="FontVariation" id="FontVariation_6vnta"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_qwqyf"]
+font = SubResource("FontVariation_6vnta")
+font_size = 32
+
+[sub_resource type="SystemFont" id="SystemFont_mti6b"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_4kxuq"]
+font = SubResource("SystemFont_mti6b")
+font_size = 90
+
 [node name="Arena" type="Node2D" unique_id=924450325]
 script = ExtResource("1_dk78b")
 
@@ -30,3 +48,81 @@ max_health = 100.0
 [node name="player2" parent="players" unique_id=509796341 instance=ExtResource("1_80nbo")]
 player_id = 2
 max_health = 100.0
+
+[node name="HUD" type="CanvasLayer" parent="." unique_id=595128858]
+
+[node name="ArenaHUD" type="Control" parent="HUD" unique_id=1756153598]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TopContainer" type="MarginContainer" parent="HUD/ArenaHUD" unique_id=409783039]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 85.0
+grow_horizontal = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HUD/ArenaHUD/TopContainer" unique_id=1444308690]
+layout_mode = 2
+
+[node name="Player1" type="PanelContainer" parent="HUD/ArenaHUD/TopContainer/HBoxContainer" unique_id=410936017]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HUD/ArenaHUD/TopContainer/HBoxContainer/Player1" unique_id=1384455392]
+layout_mode = 2
+
+[node name="playerName" type="Label" parent="HUD/ArenaHUD/TopContainer/HBoxContainer/Player1/VBoxContainer" unique_id=1064466473]
+layout_mode = 2
+text = "Player1"
+label_settings = SubResource("LabelSettings_62yky")
+
+[node name="HPBar" type="ProgressBar" parent="HUD/ArenaHUD/TopContainer/HBoxContainer/Player1/VBoxContainer" unique_id=291436780]
+layout_mode = 2
+value = 50.0
+
+[node name="MPBar" type="ProgressBar" parent="HUD/ArenaHUD/TopContainer/HBoxContainer/Player1/VBoxContainer" unique_id=82305189]
+layout_mode = 2
+value = 40.0
+
+[node name="MatchInfo" type="VBoxContainer" parent="HUD/ArenaHUD/TopContainer/HBoxContainer" unique_id=705498911]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Player2" type="PanelContainer" parent="HUD/ArenaHUD/TopContainer/HBoxContainer" unique_id=742028916]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HUD/ArenaHUD/TopContainer/HBoxContainer/Player2" unique_id=1025912827]
+layout_mode = 2
+
+[node name="PlayerName" type="Label" parent="HUD/ArenaHUD/TopContainer/HBoxContainer/Player2/VBoxContainer" unique_id=168216002]
+layout_mode = 2
+text = "Player2"
+label_settings = SubResource("LabelSettings_qwqyf")
+
+[node name="HPBar" type="ProgressBar" parent="HUD/ArenaHUD/TopContainer/HBoxContainer/Player2/VBoxContainer" unique_id=1541998300]
+layout_mode = 2
+
+[node name="MPBar" type="ProgressBar" parent="HUD/ArenaHUD/TopContainer/HBoxContainer/Player2/VBoxContainer" unique_id=2040994717]
+layout_mode = 2
+
+[node name="Match" type="Label" parent="HUD/ArenaHUD" unique_id=392500881]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "WON"
+label_settings = SubResource("LabelSettings_4kxuq")
