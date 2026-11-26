@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://ctu8silqnffep"]
 
 [ext_resource type="PackedScene" uid="uid://dmmjc5agpgjpm" path="res://fighter/fighter.tscn" id="1_80nbo"]
+[ext_resource type="Script" uid="uid://dyldinvn2jwkp" path="res://arena/arena.gd" id="1_dk78b"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mti6b"]
 
@@ -8,12 +9,7 @@
 size = Vector3(20, 20, 20)
 
 [node name="Arena" type="Node2D" unique_id=924450325]
-
-[node name="CharacterBody2D" parent="." unique_id=2003875385 instance=ExtResource("1_80nbo")]
-speed = 300.0
-acceleration = 500.0
-friction = 1000.0
-max_health = 100.0
+script = ExtResource("1_dk78b")
 
 [node name="map" type="Node2D" parent="." unique_id=1626747692]
 
@@ -25,3 +21,9 @@ shape = SubResource("RectangleShape2D_mti6b")
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="map/StaticBody2D" unique_id=2034637029]
 mesh = SubResource("BoxMesh_4kxuq")
+
+[node name="players" type="Node2D" parent="." unique_id=1987761873]
+
+[node name="player1" parent="players" unique_id=2003875385 instance=ExtResource("1_80nbo")]
+
+[node name="player2" parent="players" unique_id=509796341 instance=ExtResource("1_80nbo")]
