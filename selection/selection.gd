@@ -2,6 +2,7 @@
 extends Control
 
 signal finished(result: Dictionary)
+signal back_to_menu
 
 var player_count: int = 2
 var swap_mode: bool = false
@@ -362,9 +363,13 @@ func _is_loadout_valid() -> bool:
 	return has_skill
 
 
-func _back_pressed()->void:
-	#herev ehnii hun songoson bsn bol butsana ugui bol main menu ruu butsna
-	pass
+func _on_back_button_pressed() -> void:
+	if _current_player > 1:
+		_current_player -= 1
+		_notice = ""
+		_refresh()
+	else:
+		back_to_menu.emit()
 
 func _on_start_pressed() -> void:
 	if not _is_loadout_valid():

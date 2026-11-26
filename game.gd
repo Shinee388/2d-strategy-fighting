@@ -70,13 +70,16 @@ func start_series() -> void:
 # bolon finished(result: Dictionary) signal-tai baih yostoi
 func show_selection(swap_mode: bool) -> void:
 	var selection := SELECTION_SCENE.instantiate()
+
 	selection.player_count = PLAYER_COUNT
 	selection.swap_mode = swap_mode
 	selection.max_swaps = MAX_SWAPS
 	selection.loadouts = loadouts.duplicate(true)
-	selection.finished.connect(_on_selection_finished)
-	change_scene(selection)
 
+	selection.finished.connect(_on_selection_finished)
+	selection.back_to_menu.connect(show_main_menu)
+
+	change_scene(selection)
 
 func _on_selection_finished(result: Dictionary) -> void:
 	if match_number > 0:
