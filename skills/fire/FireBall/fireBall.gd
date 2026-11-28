@@ -5,8 +5,14 @@ extends BaseSkill
 @export var damage: float = 20.0
 @export var spawn_offset: float = 24.0
 
+@export_group("Growth")
+@export var start_scale: float = 0.5   
+@export var end_scale: float = 5     
+@export var grow_time: float = 2.5    
+
 var direction: Vector2 = Vector2.RIGHT
 var _age: float = 0.0
+var _base_scale: Vector2
 
 
 func _init() -> void:
@@ -19,6 +25,8 @@ func _ready() -> void:
 		go_dormant()
 		return
 	body_entered.connect(_on_body_entered)
+	_base_scale = scale
+	scale = _base_scale * start_scale
 
 func use(dir: Vector2) -> void:
 	spawn_copy(dir, spawn_offset, {"direction": dir})
@@ -28,6 +36,11 @@ func use(dir: Vector2) -> void:
 func _physics_process(delta: float) -> void:
 	global_position += direction * speed * delta
 	_age += delta
+
+	# Yavsaar tomordog
+	var t := clampf(_age / grow_time, 0.0, 1.0)
+	scale = _base_scale * lerpf(start_scale, end_scale, t)
+
 	if _age >= lifetime:
 		queue_free()
 

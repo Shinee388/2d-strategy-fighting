@@ -9,6 +9,7 @@ height = 20.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_rjhxl"]
 
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=2003875385]
+scale = Vector2(2, 2)
 script = ExtResource("1_lj1wu")
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="." unique_id=562350129]
